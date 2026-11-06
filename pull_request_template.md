@@ -20,7 +20,7 @@
 ## Vérifications faites
 
 - Tests ajoutés : <!-- fichier › scénario ; « aucun » avec la raison -->
-- Contrôles locaux : <!-- `npm run check`, et tout ce qui a été joué au-delà : `npm run build`, `docker build`,
+- Contrôles locaux : <!-- `npm run check` ou les contrôles du README, et tout ce qui a été joué au-delà : `npm run build`, `docker build`,
      migration appliquée, tests SQL ou de bout en bout. Ce qui n'a pas pu être joué, et pourquoi. -->
 - Vérification manuelle : <!-- parcours joué, où, avec quel compte et quelles données ; « aucune » sinon -->
 
@@ -43,7 +43,7 @@
 
 <!-- Ce qui ne se rattrape pas en annulant la PR, ou qui demande une action hors du dépôt.
      Cocher ce qui s'applique et préciser en une ligne. Rien de coché = la PR s'annule sans suite.
-     Une case cochée, ou un Merge Risk « Moderate » ou au-dessus, demande un relecteur humain :
+     Une case cochée, ou un Merge Risk « Moderate » ou au-dessus, demande une relecture humaine :
      CONTRIBUTING.md, section « Relecture selon le risque ». -->
 
 - [ ] Contrat d'API ou de webhook modifié, ou rupture de compatibilité (API, données, configuration) :
@@ -52,10 +52,11 @@
 - [ ] Action au déploiement (variable d'environnement, secret, configuration de l'hôte) :
 - [ ] Donnée personnelle nouvelle : durée de conservation, prestataire qui la traite ?
 - [ ] Dépendance ajoutée, ou montée de version majeure :
+- [ ] Autre effet que l'annulation ne défait pas (e-mail ou notification envoyés, appel à un service externe, donnée effacée) :
 
 ## Avant le merge
 
 - [ ] CI au vert.
-- [ ] Relecteur humain ajouté si le risque est important (`CODEOWNERS`, à défaut la personne qui a ouvert la PR).
+- [ ] Relecture humaine faite si le risque est important (`CODEOWNERS`, à défaut la personne qui a ouvert la PR).
 - [ ] La documentation du dépôt est à jour si une règle ou un comportement change.
 - [ ] Aucun secret ni donnée réelle, y compris dans les tests, les captures et les preuves.

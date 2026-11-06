@@ -28,8 +28,8 @@ commandes, conventions) sont dans son `CLAUDE.md` ; en cas d'écart, le dépôt 
 - Titre au format Conventional Commits : il devient le message du commit de squash, et la
   description en devient le corps.
 - Avant d'ouvrir la PR :
-  1. `npm run check` au vert (formatage, lint, typage, tests), en entier et pas seulement sur les
-     fichiers touchés.
+  1. Contrôles du dépôt au vert (formatage, lint, typage, tests), en entier et pas seulement sur
+     les fichiers touchés : `npm run check` dans un dépôt Node, sinon ceux que donne son README.
   2. Jouer en local le plus possible de ce que la CI et le déploiement feront : `npm run build`,
      image Docker construite, migration appliquée, tests SQL ou de bout en bout. Ce qui n'a pas pu
      être joué en local se dit dans la PR.
@@ -53,10 +53,10 @@ commandes, conventions) sont dans son `CLAUDE.md` ; en cas d'écart, le dépôt 
 Le risque se lit après le dernier tour de CodeRabbit, dans son « Merge Risk », et dans la section
 « Impacts » du modèle de PR. En cas de doute, le niveau supérieur s'applique.
 
-| Risque    | PR                                                                         | Relecture                                                                                                                                                                                                               |
-| --------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Faible    | Merge Risk « Minimal » ou « Low », et aucune case d'impact cochée          | Revues traitées ; un humain fusionne. Renovate fusionne seul les mises à jour que son preset autorise.                                                                                                                  |
-| Important | Merge Risk « Moderate » ou au-dessus, ou au moins une case d'impact cochée | Un relecteur humain est ajouté à la PR : le `CODEOWNERS` de la partie touchée, à défaut la personne qui a ouvert la PR (pour une PR d'agent, celle qui l'a lancé). Il vérifie chaque ligne d'impact avant de fusionner. |
+| Risque    | PR                                                                         | Relecture                                                                                                                                                                                                                                                                                                                       |
+| --------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Faible    | Merge Risk « Minimal » ou « Low », et aucune case d'impact cochée          | Revues traitées ; un humain fusionne. Renovate fusionne seul les mises à jour que son preset autorise.                                                                                                                                                                                                                          |
+| Important | Merge Risk « Moderate » ou au-dessus, ou au moins une case d'impact cochée | Relecture humaine requise : le `CODEOWNERS` de la partie touchée, en revue GitHub ; à défaut, la personne qui a ouvert la PR (pour une PR d'agent, celle qui l'a lancé), dans un commentaire de la PR, GitHub ne permettant pas de demander sa revue à l'auteur. Le relecteur vérifie chaque ligne d'impact avant de fusionner. |
 
 ## Rédiger la PR
 
