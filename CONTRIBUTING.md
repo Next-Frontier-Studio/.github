@@ -29,12 +29,13 @@ commandes, conventions) sont dans son `CLAUDE.md` ; en cas d'écart, le dépôt 
   description en devient le corps.
 - Avant d'ouvrir la PR :
   1. Contrôles du dépôt au vert (formatage, lint, typage, tests), en entier et pas seulement sur
-     les fichiers touchés : `npm run check` dans un dépôt Node, sinon ceux que donne son README.
+     les fichiers touchés : `npm run check` quand le dépôt le fournit, sinon ceux que donne son README.
   2. Jouer en local le plus possible de ce que la CI et le déploiement feront : `npm run build`,
      image Docker construite, migration appliquée, tests SQL ou de bout en bout. Ce qui n'a pas pu
      être joué en local se dit dans la PR.
   3. Revues IA, dans cet ordre, pour que chacune voie le code corrigé par la précédente :
-     `/simplify`, `/code-review high`, `/security-review`, puis `/full-review`.
+     `/simplify`, `/code-review high`, `/security-review` quand le sujet l'exige (voir ci-dessous), puis
+     `/full-review`.
      Chaque remarque est corrigée, ou écartée comme faux positif avec sa raison.
 - `/security-review` se lance dès que la PR touche un sujet complexe ou exposé à internet : API,
   webhook, authentification, droits, accès aux données, fichiers reçus, secrets, toute entrée venue
@@ -53,10 +54,10 @@ commandes, conventions) sont dans son `CLAUDE.md` ; en cas d'écart, le dépôt 
 Le risque se lit après le dernier tour de CodeRabbit, dans son « Merge Risk », et dans la section
 « Impacts » du modèle de PR. En cas de doute, le niveau supérieur s'applique.
 
-| Risque    | PR                                                                         | Relecture                                                                                                                                                                                                                                                                                                                       |
-| --------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Faible    | Merge Risk « Minimal » ou « Low », et aucune case d'impact cochée          | Revues traitées ; un humain fusionne. Renovate fusionne seul les mises à jour que son preset autorise.                                                                                                                                                                                                                          |
-| Important | Merge Risk « Moderate » ou au-dessus, ou au moins une case d'impact cochée | Relecture humaine requise : le `CODEOWNERS` de la partie touchée, en revue GitHub ; à défaut, la personne qui a ouvert la PR (pour une PR d'agent, celle qui l'a lancé), dans un commentaire de la PR, GitHub ne permettant pas de demander sa revue à l'auteur. Le relecteur vérifie chaque ligne d'impact avant de fusionner. |
+| Risque    | PR                                                                         | Relecture                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Faible    | Merge Risk « Minimal » ou « Low », et aucune case d'impact cochée          | Revues traitées ; un humain fusionne. Renovate fusionne seul les mises à jour que son preset autorise.                                                                                                                                                                                                                                                                                    |
+| Important | Merge Risk « Moderate » ou au-dessus, ou au moins une case d'impact cochée | Relecture humaine requise : le `CODEOWNERS` de la partie touchée, en revue GitHub ; à défaut, ou si ce `CODEOWNERS` est l'auteur, un autre relecteur ou la personne qui a ouvert la PR (pour une PR d'agent, celle qui l'a lancé), dans un commentaire de la PR, GitHub ne permettant pas de demander sa revue à l'auteur. Le relecteur vérifie chaque ligne d'impact avant de fusionner. |
 
 ## Rédiger la PR
 

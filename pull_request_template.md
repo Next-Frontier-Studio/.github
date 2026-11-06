@@ -20,7 +20,7 @@
 ## Vérifications faites
 
 - Tests ajoutés : <!-- fichier › scénario ; « aucun » avec la raison -->
-- Contrôles locaux : <!-- `npm run check` ou les contrôles du README, et tout ce qui a été joué au-delà : `npm run build`, `docker build`,
+- Contrôles locaux : <!-- `npm run check` s'il existe, sinon les contrôles du README, et tout ce qui a été joué au-delà : `npm run build`, `docker build`,
      migration appliquée, tests SQL ou de bout en bout. Ce qui n'a pas pu être joué, et pourquoi. -->
 - Vérification manuelle : <!-- parcours joué, où, avec quel compte et quelles données ; « aucune » sinon -->
 
